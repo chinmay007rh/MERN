@@ -1,0 +1,40 @@
+.container {
+  text-align: center;
+  padding: 50px;
+}
+
+input, textarea {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.blog-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.blog-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  background: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  padding: 5px;
+  cursor: pointer;
+}
