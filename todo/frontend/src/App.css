@@ -82,3 +82,7 @@ li.completed span {
 .delete-btn:hover {
   background-color: #191313;
 } 
+
+.edit-btn {
+  background-color: #ffc107;
+}

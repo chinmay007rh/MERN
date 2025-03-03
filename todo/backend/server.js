@@ -40,14 +40,33 @@ app.post('/todos', (req, res) => {
     });
 });
 
-app.put('/todos/:id', (req, res) => {
+app.put("/tasks/:id", (req, res) => {
     const { id } = req.params;
-    const { completed } = req.body;
-    db.query('UPDATE todos SET completed = ? WHERE id = ?', [completed, id], (err) => {
+    const { title, completed } = req.body;
+    db.query("UPDATE tasks SET title = ?, completed = ? WHERE id = ?", [title, completed, id], (err) => {
         if (err) return res.status(500).send(err);
-        res.json({ message: 'Todo updated successfully' });
+        res.json({ message: "Task updated successfully" });
     });
 });
+
+app.put('/todos/:id', (req, res) => {
+    const { id } = req.params;
+    const { title, completed } = req.body;
+    db.query('UPDATE todos SET title = ?, completed = ? WHERE id = ?', [title, completed, id], (err) => {
+        if (err) return res.status(500).send(err);
+        res.json({ message: '✅ Task updated successfully' });
+    });
+});
+
+
+app.put('/todos/:id/toggle', (req, res) => {
+    const { id } = req.params;
+    db.query('UPDATE todos SET completed = NOT completed WHERE id = ?', [id], (err) => {
+        if (err) return res.status(500).send(err);
+        res.json({ message: '✅ Task toggled successfully' });
+    });
+});
+
 
 app.delete('/todos/:id', (req, res) => {
     const { id } = req.params;
